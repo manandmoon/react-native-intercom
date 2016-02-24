@@ -1,26 +1,40 @@
 # react-native-intercom
 React Native wrapper for Intercom.io. Based off of [intercom-cordova](https://github.com/intercom/intercom-cordova)
 
-Install
-=======
+### Installation
 
-1. `npm install react-native-intercom`
-2. In XCode, in the project navigator right click `Libraries` ➜ `Add Files to [your project's name]`
-3. Go to `node_modules` ➜ `react-native-intercom`➜ iOS and add `IntercomWrapper.h` and `IntercomWrapper.m` 
-4. Add `pod 'Intercom'` to your Podfile and run `pod install`. More instructions here: [Intercom for iOS](https://github.com/intercom/intercom-ios)
-5. Initialize Intercom in your `AppDelegate.m`
+```bash
+$ npm install react-native-intercom
+```
+
+This project ships with CocoaPods podspec you can use to have all native dependencies automatically installed. To do so, simply include the below somewhere within your Podfile.
+
+```ruby
+pod 'react-native-intercom', :path => '../node_modules/react-native-intercom'
+```
+
+**Note** You may need to update relative path to your node_modules folder in case you don't have Podfile right in the iOS folder.
+
+In case you do not use CocoaPods, simply download Intercom, attach it to your project and link just like any other React Native library.
+
+### Setup
+
+Initialize Intercom in your `AppDelegate.m`
 ```
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Initialize Intercom
     [Intercom setApiKey:@"<#ios_sdk-...#>" forAppId:@"<#your-app-id#>"];
 }
 ```
-6. [Intercom's documentation](https://github.com/intercom/intercom-ios/blob/1fe2e92c4913e4ffef290b5b62dac5ecef74ea1d/Intercom.framework/Versions/A/Headers/Intercom.h#L65) suggests adding the following call in order to receive push notifications for new messages:
+
+[Intercom's documentation](https://github.com/intercom/intercom-ios/blob/1fe2e92c4913e4ffef290b5b62dac5ecef74ea1d/Intercom.framework/Versions/A/Headers/Intercom.h#L65) suggests adding the following call in order to receive push notifications for new messages:
 ```
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
      [Intercom setDeviceToken:deviceToken];
 }
 ```
+
+For any other things, refer to Intercom's documentation.
 
 Usage
 =====
