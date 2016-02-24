@@ -2,9 +2,12 @@
   "name": "react-native-intercom",
   "version": "0.0.4",
   "description": "A React Native client for Intercom.io",
-  "main": "./lib/IntercomClient.js",
+  "main": "./RNIntercom.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "react-native": "*"
   },
   "repository": {
     "type": "git",
